@@ -99,10 +99,10 @@ if __name__ == "__main__":
     kafka_topic_maketCap = 'realtime'
 
     t1 = threading.Thread(target=jobCrawlCoinData, args=(kafka_topic_coin, bootstrap_servers))
-    # t2 = threading.Thread(target=realtime, args=( kafka_topic_maketCap, bootstrap_servers))
+    t2 = threading.Thread(target=realtime, args=( kafka_topic_maketCap, bootstrap_servers))
 
     t1.start()
-    # t2.start()
+    t2.start()
 
     t1.join()
-    # t2.join()
+    t2.join()
