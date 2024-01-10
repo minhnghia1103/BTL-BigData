@@ -1,0 +1,178 @@
+[
+  {
+    "ticker": "HPG",
+    "time": "10:16:54",
+    "orderType": "Sell Down",
+    "investorType": "SHEEP",
+    "volume": 2500,
+    "averagePrice": 27750.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 61
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:15:48",
+    "orderType": "Sell Down",
+    "investorType": "SHEEP",
+    "volume": 2200,
+    "averagePrice": 27750.0,
+    "orderCount": 2,
+    "prevPriceChange": -50.0,
+    "total_minutes": 60
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:14:57",
+    "orderType": "Buy Up",
+    "investorType": "SHEEP",
+    "volume": 500,
+    "averagePrice": 27800.0,
+    "orderCount": 2,
+    "prevPriceChange": 0.0,
+    "total_minutes": 59
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:13:55",
+    "orderType": "Buy Up",
+    "investorType": "SHEEP",
+    "volume": 300,
+    "averagePrice": 27800.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 58
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:12:55",
+    "orderType": "Sell Down",
+    "investorType": "SHEEP",
+    "volume": 500,
+    "averagePrice": 27750.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 57
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:11:58",
+    "orderType": "Sell Down",
+    "investorType": "SHEEP",
+    "volume": 3000,
+    "averagePrice": 27750.0,
+    "orderCount": 2,
+    "prevPriceChange": 0.0,
+    "total_minutes": 56
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:10:56",
+    "orderType": "Sell Down",
+    "investorType": "WOLF",
+    "volume": 15900,
+    "averagePrice": 27750.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 55
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:09:54",
+    "orderType": "Buy Up",
+    "investorType": "WOLF",
+    "volume": 28700,
+    "averagePrice": 27750.0,
+    "orderCount": 12,
+    "prevPriceChange": 50.0,
+    "total_minutes": 54
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:08:59",
+    "orderType": "Buy Up",
+    "investorType": "SHEEP",
+    "volume": 900,
+    "averagePrice": 27750.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 53
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:07:59",
+    "orderType": "Buy Up",
+    "investorType": "SHEEP",
+    "volume": 300,
+    "averagePrice": 27750.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 52
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:06:45",
+    "orderType": "Buy Up",
+    "investorType": "SHEEP",
+    "volume": 900,
+    "averagePrice": 27750.0,
+    "orderCount": 2,
+    "prevPriceChange": 0.0,
+    "total_minutes": 51
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:05:49",
+    "orderType": "Buy Up",
+    "investorType": "SHEEP",
+    "volume": 3100,
+    "averagePrice": 27750.0,
+    "orderCount": 2,
+    "prevPriceChange": 0.0,
+    "total_minutes": 50
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:04:55",
+    "orderType": "Sell Down",
+    "investorType": "SHEEP",
+    "volume": 100,
+    "averagePrice": 27700.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 49
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:03:50",
+    "orderType": "Sell Down",
+    "investorType": "SHEEP",
+    "volume": 100,
+    "averagePrice": 27700.0,
+    "orderCount": 1,
+    "prevPriceChange": -50.0,
+    "total_minutes": 48
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:02:59",
+    "orderType": "Sell Down",
+    "investorType": "SHEEP",
+    "volume": 300,
+    "averagePrice": 27700.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 47
+  },
+  {
+    "ticker": "HPG",
+    "time": "10:01:59",
+    "orderType": "Buy Up",
+    "investorType": "SHEEP",
+    "volume": 200,
+    "averagePrice": 27750.0,
+    "orderCount": 1,
+    "prevPriceChange": 0.0,
+    "total_minutes": 46
+  }
+]

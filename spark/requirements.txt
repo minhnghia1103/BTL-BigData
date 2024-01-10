@@ -1,0 +1,3 @@
+pyspark
+# spark.jars.packages org.elasticsearch:elasticsearch-spark-30_2.12:7.15.2
+# cp conf/spark-defaults.conf.template conf/spark-defaults.conf
