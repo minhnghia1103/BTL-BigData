@@ -31,7 +31,6 @@ def jobCoinData(spark):
     # Đọc dữ liệu từ Kafka
     kafka_df = spark.readStream.format("kafka").options(**kafka_params).load()
 
-    print("Data vn30")
     print(kafka_df)
 
     # Chuyển đổi cột 'value' từ dạng binary sang chuỗi JSON
@@ -59,8 +58,6 @@ def jobCoinData(spark):
     
     hdfs_query.awaitTermination()
 
-    # run file hadoop_to_spark.py
-    # subprocess.run(["python3", "hadoop_to_elastic.py"])
 
 def readStreamTime(spark):
     json_schema = ArrayType(StructType([
@@ -116,101 +113,101 @@ def readStreamTime(spark):
     query.awaitTermination()
 
 
-# def show_data(spark):
-#     json_schema = StructType([
-#         StructField("Date", StringType(), True),
-#         StructField("Open", StringType(), True),
-#         StructField("High", StringType(), True),
-#         StructField("Low", StringType(), True),
-#         StructField("Close", StringType(), True),
-#         StructField("Adj Close", StringType(), True),
-#         StructField("Volume", StringType(), True),
-#         StructField("company", StringType(), True)
-#     ])
-#     input_path = "hdfs://namenode:8020/dataInput/output.json"
-#     df = spark.read.option('multiline', True).schema(json_schema).json(input_path)
-#     df = df.withColumn("Date", to_date(col("Date"), "yyyy-MM-dd")) \
-#         .withColumn("Open", col("Open").cast("double")) \
-#         .withColumn("High", col("High").cast("double")) \
-#         .withColumn("Low", col("Low").cast("double")) \
-#         .withColumn("Close", col("Close").cast("double")) \
-#         .withColumn("Adj Close", col("Adj Close").cast("double")) \
-#         .withColumn("Volume", col("Volume").cast("long"))
+def show_data(spark):
+    json_schema = StructType([
+        StructField("Date", StringType(), True),
+        StructField("Open", StringType(), True),
+        StructField("High", StringType(), True),
+        StructField("Low", StringType(), True),
+        StructField("Close", StringType(), True),
+        StructField("Adj Close", StringType(), True),
+        StructField("Volume", StringType(), True),
+        StructField("company", StringType(), True)
+    ])
+    input_path = "hdfs://namenode:8020/dataInput/output.json"
+    df = spark.read.option('multiline', True).schema(json_schema).json(input_path)
+    df = df.withColumn("Date", to_date(col("Date"), "yyyy-MM-dd")) \
+        .withColumn("Open", col("Open").cast("double")) \
+        .withColumn("High", col("High").cast("double")) \
+        .withColumn("Low", col("Low").cast("double")) \
+        .withColumn("Close", col("Close").cast("double")) \
+        .withColumn("Adj Close", col("Adj Close").cast("double")) \
+        .withColumn("Volume", col("Volume").cast("long"))
     
-#     df.printSchema()
-#     df.show(35, truncate=False)
+    df.printSchema()
+    df.show(35, truncate=False)
     
-#     company_names = df.select("company").distinct().rdd.flatMap(lambda x: x).collect()
+    company_names = df.select("company").distinct().rdd.flatMap(lambda x: x).collect()
     
-#     for company_name in company_names:
-#         filtered_df = df.filter(col("company") == company_name)
-#         filtered_df.show(truncate=False)
+    for company_name in company_names:
+        filtered_df = df.filter(col("company") == company_name)
+        filtered_df.show(truncate=False)
         
-#         if not filtered_df.rdd.isEmpty():
-#             hdfs_output_path = f"hdfs://namenode:8020/user/root/{company_name}_processed"
+        if not filtered_df.rdd.isEmpty():
+            hdfs_output_path = f"hdfs://namenode:8020/user/root/{company_name}_processed"
             
             
-#             filtered_df.write.json(hdfs_output_path)
+            filtered_df.write.json(hdfs_output_path)
 
-# def show_one_stock(spark):
-#     json_schema = StructType([
-#         StructField("Date", StringType(), True),
-#         StructField("Open", StringType(), True),
-#         StructField("High", StringType(), True),
-#         StructField("Low", StringType(), True),
-#         StructField("Close", StringType(), True),
-#         StructField("Adj Close", StringType(), True),
-#         StructField("Volume", StringType(), True),
-#         StructField("company", StringType(), True)
-#     ])
+def show_one_stock(spark):
+    json_schema = StructType([
+        StructField("Date", StringType(), True),
+        StructField("Open", StringType(), True),
+        StructField("High", StringType(), True),
+        StructField("Low", StringType(), True),
+        StructField("Close", StringType(), True),
+        StructField("Adj Close", StringType(), True),
+        StructField("Volume", StringType(), True),
+        StructField("company", StringType(), True)
+    ])
     
-#     json_data = [
-#         {
-#             "Date": "2022-12-19",
-#             "Open": "244.860001",
-#             "High": "245.210007",
-#             "Low": "238.710007",
-#             "Close": "240.449997",
-#             "Adj Close": "238.3367",
-#             "Volume": "29696400.0",  # Chuyển đổi giá trị thành kiểu double
-#             "company": "MSFT"
-#         },
-#         {
-#             "Date": "2022-12-20",
-#             "Open": "239.399994",
-#             "High": "242.910004",
-#             "Low": "238.419998",
-#             "Close": "241.800003",
-#             "Adj Close": "239.674835",
-#             "Volume": "25150800.0",  # Chuyển đổi giá trị thành kiểu double
-#             "company": "MSFT"
-#         }
-#     ]
+    json_data = [
+        {
+            "Date": "2022-12-19",
+            "Open": "244.860001",
+            "High": "245.210007",
+            "Low": "238.710007",
+            "Close": "240.449997",
+            "Adj Close": "238.3367",
+            "Volume": "29696400.0",  # Chuyển đổi giá trị thành kiểu double
+            "company": "MSFT"
+        },
+        {
+            "Date": "2022-12-20",
+            "Open": "239.399994",
+            "High": "242.910004",
+            "Low": "238.419998",
+            "Close": "241.800003",
+            "Adj Close": "239.674835",
+            "Volume": "25150800.0",  # Chuyển đổi giá trị thành kiểu double
+            "company": "MSFT"
+        }
+    ]
     
-#     df = spark.createDataFrame(json_data, schema=json_schema)
-#     df = df.withColumn("Date", to_date(col("Date"), "yyyy-MM-dd")) \
-#         .withColumn("Open", col("Open").cast("double")) \
-#         .withColumn("High", col("High").cast("double")) \
-#         .withColumn("Low", col("Low").cast("double")) \
-#         .withColumn("Close", col("Close").cast("double")) \
-#         .withColumn("Adj Close", col("Adj Close").cast("double")) \
-#         .withColumn("Volume", col("Volume").cast("long"))
-#     df.show()
-#     try:
-#         # .option("es.nodes", "https://btl-bigdata-nghia.kb.us-central1.gcp.cloud.es.io") \
-#         # .option("es.port", "9243") \
-#         df.write.format("org.elasticsearch.spark.sql") \
-#             .option("es.nodes", "https://btl-bigdata-nghia.es.us-central1.gcp.cloud.es.io") \
-#             .option("es.port", "9243") \
-#             .option("es.resource", "search-nghia_nghia") \
-#             .option("es.net.http.auth.user", "elastic") \
-#             .option("es.net.http.auth.pass", "4mTGdc4MvU7rJ2YJ5DcLllF0") \
-#             .option("es.nodes.wan.only", "true") \
-#             .mode("overwrite") \
-#             .save()
-#         logging.info("Dữ liệu đã được gửi thành công lên Elasticsearch!")
-#     except Exception as e:
-#         logging.error("Đã xảy ra lỗi khi gửi dữ liệu lên Elasticsearch: %s", str(e))
+    df = spark.createDataFrame(json_data, schema=json_schema)
+    df = df.withColumn("Date", to_date(col("Date"), "yyyy-MM-dd")) \
+        .withColumn("Open", col("Open").cast("double")) \
+        .withColumn("High", col("High").cast("double")) \
+        .withColumn("Low", col("Low").cast("double")) \
+        .withColumn("Close", col("Close").cast("double")) \
+        .withColumn("Adj Close", col("Adj Close").cast("double")) \
+        .withColumn("Volume", col("Volume").cast("long"))
+    df.show()
+    try:
+        # .option("es.nodes", "https://btl-bigdata-nghia.kb.us-central1.gcp.cloud.es.io") \
+        # .option("es.port", "9243") \
+        df.write.format("org.elasticsearch.spark.sql") \
+            .option("es.nodes", "https://btl-bigdata-nghia.es.us-central1.gcp.cloud.es.io") \
+            .option("es.port", "9243") \
+            .option("es.resource", "search-nghia_nghia") \
+            .option("es.net.http.auth.user", "elastic") \
+            .option("es.net.http.auth.pass", "4mTGdc4MvU7rJ2YJ5DcLllF0") \
+            .option("es.nodes.wan.only", "true") \
+            .mode("overwrite") \
+            .save()
+        logging.info("Dữ liệu đã được gửi thành công lên Elasticsearch!")
+    except Exception as e:
+        logging.error("Đã xảy ra lỗi khi gửi dữ liệu lên Elasticsearch: %s", str(e))
 
 def calculate_and_add_percentage_change(spark):
     json_schema = StructType([
